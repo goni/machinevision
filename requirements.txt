@@ -1,0 +1,7 @@
+# Python requirements for HikRobot Camera Controller
+
+# Core dependencies
+numpy>=1.18.0
+
+# Optional dependencies for image processing
+opencv-python>=3.0.0
