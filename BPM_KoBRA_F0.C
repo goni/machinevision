@@ -531,7 +531,10 @@ void hPlotCircle(const char* imagePath, const char* outputPath, double elevation
 
 }
 
-void BPM_KoBRA_F0(bool adjPos = 0, bool drawLatex = 1, bool trans = 1, double thrs = 1E2) {
+//void BPM_KoBRA_F0(bool adjPos = 0, bool drawLatex = 1, bool trans = 1, double thrs = 1E2) {
+void BPM_KoBRA_F0(const char* inputDir = "./captures", 
+                  const char* outputDir = "./captures/analysis_results",
+                  bool adjPos = 0, bool drawLatex = 1, bool trans = 1, double thrs = 1E2) {
     // Parameters
     int nbin=3;
     double elevation = 45;
