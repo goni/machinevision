@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<style>
+table {
+	width: 90%;
+	margin: auto;
+	table-layout: fixed;
+}
+	td {
+		text-align: center;
+		vertical-align: middle;
+		width: 50%;
+	}
+	img {
+		max-width: 80%;
+		height: auto;
+	}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td><img id="image4" src="../images/4.png" alt="Loading ..."></td>
+				<td><img id="image1" src="../images/1.png" alt="Loading ..."></td>
+			</tr>
+			<tr>
+				<td><img id="image2" src="../images/2.png" alt="Loading ..."></td>
+				<td><img id="image3" src="../images/3.png" alt="Loading ..."></td>
+			</tr>
+		</table>
+	</body>
+	<script>
+		const imageList = [
+			{ id: "image1", path: "../images/1.png" },
+			{ id: "image2", path: "../images/2.png" },
+			{ id: "image3", path: "../images/3.png" },
+			{ id: "image4", path: "../images/4.png" }
+		];
+
+		function refreshAllImages() {
+			const timestamp = Date.now();  
+			imageList.forEach(img => {
+				const el = document.getElementById(img.id);
+				el.src = `${img.path}?t=${timestamp}`;
+				//el.src = `${img.path}?t=${timestamp}&rnd=${Math.random()}`;
+			});
+		}
+
+		function refreshAllImages() {
+			const timestamp = Date.now();
+			imageList.forEach(img => {
+				const el = document.getElementById(img.id);
+				const newImg = new Image();
+				newImg.onload = () => { el.src = newImg.src };
+				newImg.onerror = () => { console.warn(`Failed to load ${img.path}`); };
+				newImg.src = `${img.path}?t=${timestamp}&rnd=${Math.random()}`;
+			});
+		}
+
+		refreshAllImages();
+		setInterval(refreshAllImages, 1000);
+	</script>
+</html>
+
